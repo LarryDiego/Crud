@@ -8,7 +8,6 @@ namespace Crud
     {
       Console.Clear();
       System.Console.WriteLine("CRUD - STEAM GAMES KEYS by Larry Diego\n");
-      // Chamar Menu() ou criar o menu direto no Main()
 
       bool executar = true;
 
