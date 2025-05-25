@@ -70,20 +70,19 @@ namespace Crud
     static void AdicionarJogo()
     {
       Console.Clear();
-      Console.WriteLine("----- ADICIONAR JOGO -----");
-      Console.ReadLine();
+      Console.WriteLine("----- ADICIONAR JOGO -----\n");
     }
     static void ListarJogos()
     {
-      Console.WriteLine("----- LISTAR JOGOS -----");
+      Console.WriteLine("----- LISTAR JOGOS -----\n");
     }
     static void AtualizarJogo()
     {
-      Console.WriteLine("----- ATUALIZAR JOGO PELO ID -----");
+      Console.WriteLine("----- ATUALIZAR JOGO PELO ID -----\n");
     }
     static void RemoverJogo()
     {
-      Console.WriteLine("----- REMOVER JOGO PELO ID -----");
+      Console.WriteLine("----- REMOVER JOGO PELO ID -----\n");
     }
   }
 }
