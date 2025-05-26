@@ -16,7 +16,7 @@ namespace Crud.Models
 
         public override string ToString()
         {
-            return $"ID: {Id} | Nome: {Nome} | Preço: R$ {Preco.ToString("F2")}"
+            return $"ID: {Id} | Nome: {Nome} | Preço: R$ {Preco.ToString("F2")}";
         }
     }
 }
