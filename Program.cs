@@ -1,9 +1,11 @@
 ﻿using System;
+using Crud.Models;
 
 namespace Crud
 {
   class Program
   {
+    static List<Jogo> jogos = new List<Jogo>();
     static void Main(string[] args)
     {
       Console.Clear();
@@ -70,6 +72,16 @@ namespace Crud
     {
       Console.Clear();
       Console.WriteLine("----- ADICIONAR JOGO -----\n");
+
+      string nome = ValidarString("Nome do jogo: ");
+      decimal preco = ValidarDecimal("Preço do jogo: R$ ");
+
+      Jogo novoJogo = new Jogo(nome, preco);
+      jogos.Add(novoJogo);
+
+      Console.WriteLine($"Jogo adicionado com sucesso! ID: {novoJogo.Id}");
+      Console.WriteLine("Pressione Enter para voltar.");
+      Console.ReadLine();
     }
     static void ListarJogos()
     {
@@ -82,6 +94,57 @@ namespace Crud
     static void RemoverJogo()
     {
       Console.WriteLine("----- REMOVER JOGO PELO ID -----\n");
+    }
+
+    static string ValidarString(string mensagem)
+    {
+      string valor;
+
+      do
+      {
+        Console.Write(mensagem);
+        valor = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(valor))
+        {
+          Console.WriteLine("O campo não pode ser vazio.");
+        }
+      } while (string.IsNullOrWhiteSpace(valor));
+
+      return valor;
+    }
+
+    static int ValidarInt(string mensagem)
+    {
+      {
+        int valor;
+
+        while (true)
+        {
+          Console.Write(mensagem);
+          if (int.TryParse(Console.ReadLine(), out valor))
+          {
+            return valor;
+          }
+
+          Console.WriteLine("Entrada inválida. Digite um número inteiro.");
+        }
+      }
+    }
+
+    static decimal ValidarDecimal(string mensagem)
+    {
+      decimal valor;
+
+      while (true)
+      {
+        Console.Write(mensagem);
+        if (decimal.TryParse(Console.ReadLine(), out valor))
+        {
+          return valor;
+        }
+
+        Console.WriteLine("Entrada inválida. Digite um número decimal.");
+      }
     }
   }
 }
