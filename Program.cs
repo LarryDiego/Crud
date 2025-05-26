@@ -98,10 +98,7 @@ namespace Crud
       }
       else
       {
-        foreach (Jogo jogo in jogos)
-        {
-          Console.WriteLine(jogo);
-        }
+        ListarJogosDaLista();
       }
       Console.WriteLine("\nPressione Enter para voltar.");
       Console.ReadLine();
@@ -109,7 +106,38 @@ namespace Crud
     }
     static void AtualizarJogo()
     {
+      Console.Clear();
       Console.WriteLine("----- ATUALIZAR JOGO PELO ID -----\n");
+
+      if (jogos.Count == 0)
+      {
+        Console.WriteLine("Nenhum jogo cadastrado");
+      }
+      else
+      {
+        ListarJogosDaLista();
+        int idInformado = ValidarInt("\nInforme o ID do jogo a atualizar: ");
+        Jogo jogoEscolhido = jogos.Find((jogo) => jogo.Id == idInformado);
+
+        if (jogoEscolhido == null)
+        {
+          Console.WriteLine("Jogo não encontrado.");
+        }
+        else
+        {
+          string nome = ValidarString("Novo nome: ");
+          decimal preco = ValidarDecimal("Novo preço: R$ ");
+
+          jogoEscolhido.Nome = nome;
+          jogoEscolhido.Preco = preco;
+
+          Console.WriteLine($"\nJogo atualizado com sucesso! {jogoEscolhido}");
+        }
+      }
+
+      Console.WriteLine("\nPressione Enter para voltar.");
+      Console.ReadLine();
+      Console.Clear();
     }
     static void RemoverJogo()
     {
@@ -164,6 +192,14 @@ namespace Crud
         }
 
         Console.WriteLine("Entrada inválida. Digite um número decimal.");
+      }
+    }
+
+    static void ListarJogosDaLista()
+    {
+      foreach (Jogo jogo in jogos)
+      {
+        Console.WriteLine(jogo);
       }
     }
   }
