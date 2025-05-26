@@ -89,7 +89,23 @@ namespace Crud
     }
     static void ListarJogos()
     {
+      Console.Clear();
       Console.WriteLine("----- LISTAR JOGOS -----\n");
+
+      if (jogos.Count == 0)
+      {
+        Console.WriteLine("Nenhum jogo cadastrado");
+      }
+      else
+      {
+        foreach (Jogo jogo in jogos)
+        {
+          Console.WriteLine(jogo);
+        }
+      }
+      Console.WriteLine("\nPressione Enter para voltar.");
+      Console.ReadLine();
+      Console.Clear();
     }
     static void AtualizarJogo()
     {
