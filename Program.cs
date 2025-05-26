@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Crud.Models;
 
 namespace Crud
@@ -8,6 +9,8 @@ namespace Crud
     static List<Jogo> jogos = new List<Jogo>();
     static void Main(string[] args)
     {
+      Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+
       Console.Clear();
       System.Console.WriteLine("CRUD - STEAM GAMES KEYS by Larry Diego\n");
 
