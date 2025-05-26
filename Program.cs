@@ -142,6 +142,31 @@ namespace Crud
     static void RemoverJogo()
     {
       Console.WriteLine("----- REMOVER JOGO PELO ID -----\n");
+
+      if (jogos.Count == 0)
+      {
+        Console.WriteLine("Nenhum jogo cadastrado");
+      }
+      else
+      {
+        ListarJogosDaLista();
+        int idInformado = ValidarInt("\nInforme o ID do jogo a remover: ");
+        Jogo jogoEscolhido = jogos.Find((jogo) => jogo.Id == idInformado);
+
+        if (jogoEscolhido == null)
+        {
+          Console.WriteLine("Jogo não encontrado.");
+        }
+        else
+        {
+          jogos.Remove(jogoEscolhido);
+          Console.WriteLine($"\nJogo removido com sucesso! {jogoEscolhido}");
+        }
+      }
+
+      Console.WriteLine("\nPressione Enter para voltar.");
+      Console.ReadLine();
+      Console.Clear();
     }
 
     static string ValidarString(string mensagem)
