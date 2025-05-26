@@ -11,6 +11,7 @@ namespace Crud.Models
         {
             Id = idAtual;
             Nome = nome;
+            Preco = preco;
             idAtual++;
         }
 

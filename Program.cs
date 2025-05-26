@@ -82,9 +82,10 @@ namespace Crud
       Jogo novoJogo = new Jogo(nome, preco);
       jogos.Add(novoJogo);
 
-      Console.WriteLine($"Jogo adicionado com sucesso! ID: {novoJogo.Id}");
-      Console.WriteLine("Pressione Enter para voltar.");
+      Console.WriteLine($"\nJogo adicionado com sucesso! {novoJogo}");
+      Console.WriteLine("\nPressione Enter para voltar.");
       Console.ReadLine();
+      Console.Clear();
     }
     static void ListarJogos()
     {
